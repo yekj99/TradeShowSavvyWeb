@@ -1,0 +1,669 @@
+/* 
+  style.css 
+  Combines global, layout, and page-specific styles for:
+    - Home
+    - About
+    - Consulting
+    - Contact
+    - Software
+*/
+
+/* ============== GLOBAL RESETS & UTILITIES ============== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Container utility */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 2rem 0;
+}
+
+a {
+  color: inherit; /* so text color matches parent for style consistency */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ============== HEADER & FOOTER SHARED STYLES ============== */
+.site-header {
+  background: url('images/header-bg.png') center/cover no-repeat;
+  position: relative;
+  color: #fff;
+  min-height: 300px;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0); /* adjust as needed */
+  z-index: 1;
+}
+.header-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 300px;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.logo {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.logo img {
+  max-height: 100px; /* Adjust as needed */
+  width: auto;
+  /* or another rule, like: max-width: 150px; */
+}
+/* NAV STRIP (Separate Bar) */
+.nav-strip {
+  background-color: #674ebf; /* color for the nav strip, can be brand color or darker shade */
+  padding: 0.5rem 0;
+}
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;         /* spacing between nav items */
+  justify-content: center;
+}
+.nav-menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+  
+}
+.nav-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.nav-menu a.active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.main-nav {
+  position: absolute;
+  bottom: 1rem;  /* distance from bottom edge */
+  right: 1rem;   /* distance from right edge */
+  z-index: 2;    /* above overlay */
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent dark background */
+  border-radius: 8px;             /* round corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+/* NAV LIST */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0.5rem 1rem; /* space inside the nav container */
+  gap: 1rem;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+
+
+.main-nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.main-nav a.active {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.site-footer {
+  background: #674ebf;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* ============== HERO SECTIONS (COMMON) ============== */
+.hero {
+  background: #1d8ff2; /* Default hero background */
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero .btn,
+.hero .btn-alt {
+  background: #ff5c5c;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  margin: 0 0.5rem;
+}
+
+.hero .btn:hover {
+  background: #ff2c2c;
+}
+
+/* If you want an alternate button style for hero, override it */
+.btn-alt {
+  background: #333;
+}
+.btn-alt:hover {
+  background: #555;
+}
+
+/* ============== HOME PAGE SECTIONS ============== */
+/* 
+  .mission, .services-overview, .services-cards, etc.
+  used on index.html
+*/
+.mission {
+  text-align: center;
+}
+
+.mission h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.mission p {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.1rem;
+}
+
+.services-overview {
+  text-align: center;
+}
+
+.services-overview h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.services-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  flex: 1 1 250px;
+  max-width: 350px;
+  padding: 1.5rem;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.card h3 {
+  margin-bottom: 0.75rem;
+  color: #1d8ff2;
+}
+
+.card p {
+  margin-bottom: 1rem;
+}
+
+.btn-card {
+  text-decoration: none;
+  background: #1d8ff2;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-card:hover {
+  background: #0056b3;
+}
+
+.differentiators {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.differentiators h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.diff-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.diff-item {
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.diff-item h3 {
+  color: #1d8ff2;
+  margin-bottom: 0.5rem;
+}
+
+.diff-item p {
+  line-height: 1.4;
+}
+
+/* ============== CTA SECTION (COMMON) ============== */
+.cta-section {
+  background: #1d8ff2;
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.cta-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  background: #ff5c5c;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background: #ff2c2c;
+}
+
+/* ============== ABOUT US PAGE SECTIONS ============== */
+.company-overview h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.company-overview p {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.founders {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.founders h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.founder-bios {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.founder {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left; 
+}
+
+.founder img {
+  border-radius: 50%;
+  width: 200px;  
+  height: 200px; 
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.founder-details {
+  max-width: 400px;
+}
+
+.founder-details h3 {
+  margin-bottom: 0.25rem;
+  color: #1d8ff2;
+}
+
+.founder-details p {
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.founder-details p strong {
+  color: #444;
+}
+
+/* ============== CONSULTING PAGE SECTIONS ============== */
+/* 
+  .consulting-section, .service-list, .service-item, etc.
+*/
+
+.consulting-section {
+  padding: 2rem 0;
+}
+
+.consulting-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.consulting-section p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.service-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-item {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+
+.service-item h3 {
+  margin-bottom: 0.75rem;
+  color: #1d8ff2;
+}
+
+.service-item ul {
+  list-style: disc inside;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* ============== CONTACT PAGE SECTIONS ============== */
+.contact-info h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  margin-bottom: 2rem;
+}
+
+.info-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.info-box {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 4px;
+  flex: 1 1 200px;
+  border: 1px solid #eee;
+}
+
+.info-box h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.info-box p {
+  margin-bottom: 0;
+}
+
+.info-box a {
+  color: #1d8ff2;
+  text-decoration: underline;
+}
+
+.contact-form-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.contact-form {
+  background: #fff;
+  padding: 2rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  max-width: 700px;
+  margin-top: 1rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.contact-form label span {
+  color: #ff5c5c; /* indicates required */
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.btn-submit {
+  display: inline-block;
+  margin-top: 1.5rem;
+  background: #1d8ff2;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-submit:hover {
+  background: #0056b3;
+}
+
+.map-section {
+  margin-top: 2rem;
+}
+
+.map-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.map-container {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 700px;
+  margin-top: 1rem;
+}
+
+/* ============== SOFTWARE PAGE SECTIONS ============== */
+.software-intro h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.software-intro p {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.planned-features {
+  text-align: center;
+}
+
+.planned-features h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 1.5rem auto;
+  max-width: 600px;
+  text-align: left; /* bullet points aligned left */
+}
+
+.feature-list li {
+  background: #fff;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  position: relative;
+}
+
+.feature-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0.5rem;
+  top: 0.75rem;
+  color: #1d8ff2;
+}
+
+.feature-list li {
+  padding-left: 2rem; /* space for the check icon */
+}
+
+.disclaimer {
+  font-size: 0.9rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ============== RESPONSIVE BREAKPOINTS ============== */
+@media (max-width: 768px) {
+  /* Hero adjustments */
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+
+  /* Differentiators & Services cards collapse */
+  .diff-list {
+    grid-template-columns: 1fr;
+  }
+  .services-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    max-width: 100%;
+  }
+
+  /* Founders bios stack */
+  .founder-bios {
+    grid-template-columns: 1fr;
+  }
+
+  /* Consulting service-list stack */
+  .service-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* Contact info boxes stack */
+  .info-boxes {
+    flex-direction: column;
+  }
+
+  /* Software page headings slightly smaller */
+  .planned-features h2,
+  .software-intro h2,
+  .cta-section h2 {
+    font-size: 1.6rem;
+  }
+}

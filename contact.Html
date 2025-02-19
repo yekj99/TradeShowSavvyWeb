@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Contact Trade Show Savvy">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Trade Show Savvy</title>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="overlay"></div>
+  <div class="header-content container">
+
+  </div>
+</header>
+<!-- NAVIGATION STRIP -->
+<nav class="nav-strip">
+  <div class="container">
+    <ul class="nav-menu">
+      <li><a href="index.html" >Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="consulting.html">Consulting</a></li>
+      <li><a href="software.html">Software</a></li>
+      <li><a href="contact.html"class="active">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+  <!-- HERO / BANNER SECTION -->
+  <section class="hero">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you. Let us know how we can help!</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    
+    <!-- CONTACT INFO SECTION -->
+    <section class="contact-info">
+      <h2>Get in Touch</h2>
+      <p>
+        Whether you have questions about our consulting services, software solutions, 
+        or just want to explore how Trade Show Savvy can help your business, 
+        we’re here for you.
+      </p>
+      <div class="info-boxes">
+        <!-- Email -->
+        <div class="info-box">
+          <h3>Email Us</h3>
+          <p><a href="mailto:info@tradeshowsavvy.com">info@tradeshowsavvy.com</a></p>
+        </div>
+        <!-- Phone -->
+        <div class="info-box">
+          <h3>Call Us</h3>
+          <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+        </div>
+        <!-- Office Address -->
+        <div class="info-box">
+          <h3>Visit Us</h3>
+          <p>8376 Davis Blvd, Ste 238,<br>
+          North Richland Hills, TX 76182</p>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- CONTACT FORM SECTION -->
+    <section class="contact-form-section">
+      <h2>Send Us a Message</h2>
+      <p>Fill out the form below and our team will get back to you as soon as possible.</p>
+
+      <form action="#" method="POST" class="contact-form">
+        <label for="name">Name <span>*</span></label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required />
+
+        <label for="email">Email <span>*</span></label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required />
+
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" placeholder="Company Name" />
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" />
+
+        <label for="message">Message <span>*</span></label>
+        <textarea id="message" name="message" rows="5" placeholder="How can we help?" required></textarea>
+
+        <label for="inquiry-type">Inquiry Type</label>
+        <select id="inquiry-type" name="inquiry-type">
+          <option value="Consulting Inquiry">Consulting Inquiry</option>
+          <option value="Software Demo">Software Demo</option>
+          <option value="General Question">General Question</option>
+        </select>
+
+        <button type="submit" class="btn-submit">Submit</button>
+      </form>
+    </section>
+
+    <hr>
+
+    <!-- MAP SECTION -->
+    <section class="map-section">
+      <h2>Our Location</h2>
+      <div class="map-container">
+        <!-- 
+          Embedded Google Map for 8376 Davis Blvd, North Richland Hills, TX.
+          You can adjust width/height or other parameters to match your design.
+        -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.9913083437857!2d-97.22661868481532!3d32.85942288094014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e79567f3ba09d%3A0x944b65dd24e1296f!2s8376%20Davis%20Blvd%2C%20North%20Richland%20Hills%2C%20TX%2076182!5e0!3m2!1sen!2sus!4v1612210636173!5m2!1sen!2sus"
+          width="600"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Trade Show Savvy, LLC. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
