@@ -1,12 +1,12 @@
-/* 
-  style.css 
-  Combines global, layout, and page-specific styles for:
-    - Home
-    - About
-    - Consulting
-    - Contact
-    - Software
-*/
+/* CSS Variables */
+:root {
+  --primary-color: #674ebf;
+  --secondary-color: #1d8ff2;
+  --accent-color: #ff5c5c;
+  --text-color: #333;
+  --background-color: #f9f9f9;
+  --font-family: Arial, sans-serif;
+}
 
 /* ============== GLOBAL RESETS & UTILITIES ============== */
 * {
@@ -16,10 +16,10 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: var(--font-family);
   line-height: 1.6;
-  color: #333;
-  background-color: #f9f9f9;
+  color: var(--text-color);
+  background-color: var(--background-color);
 }
 
 /* Container utility */
@@ -53,12 +53,14 @@ a:hover {
   min-height: 300px;
   overflow: hidden;
 }
+
 .overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0, 0, 0, 0); /* adjust as needed */
   z-index: 1;
 }
+
 .header-content {
   position: relative;
   z-index: 2;
@@ -86,17 +88,20 @@ a:hover {
   width: auto;
   /* or another rule, like: max-width: 150px; */
 }
+
 /* NAV STRIP (Separate Bar) */
 .nav-strip {
-  background-color: #674ebf; /* color for the nav strip, can be brand color or darker shade */
+  background-color: var(--primary-color); /* color for the nav strip, can be brand color or darker shade */
   padding: 0.5rem 0;
 }
+
 .nav-menu {
   list-style: none;
   display: flex;
   gap: 1rem;         /* spacing between nav items */
   justify-content: center;
 }
+
 .nav-menu a {
   color: #fff;
   text-decoration: none;
@@ -104,11 +109,12 @@ a:hover {
   font-weight: 500;
   border-radius: 4px;
   transition: background 0.2s ease;
-  
 }
+
 .nav-menu a:hover {
   background: rgba(255, 255, 255, 0.1);
 }
+
 .nav-menu a.active {
   background: rgba(255, 255, 255, 0.2);
 }
@@ -122,7 +128,6 @@ a:hover {
   border-radius: 8px;             /* round corners */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
-
 
 /* NAV LIST */
 .main-nav ul {
@@ -142,8 +147,6 @@ a:hover {
   transition: background 0.3s ease;
 }
 
-
-
 .main-nav a:hover {
   background: rgba(255, 255, 255, 0.2);
 }
@@ -152,14 +155,8 @@ a:hover {
   background: rgba(255, 255, 255, 0.4);
 }
 
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .site-footer {
-  background: #674ebf;
+  background: var(--primary-color);
   color: #fff;
   text-align: center;
   padding: 1rem 0;
@@ -167,7 +164,7 @@ a:hover {
 
 /* ============== HERO SECTIONS (COMMON) ============== */
 .hero {
-  background: #1d8ff2; /* Default hero background */
+  background: var(--secondary-color); /* Default hero background */
   color: #fff;
   text-align: center;
   padding: 4rem 1rem;
@@ -185,7 +182,7 @@ a:hover {
 
 .hero .btn,
 .hero .btn-alt {
-  background: #ff5c5c;
+  background: var(--accent-color);
   color: #fff;
   padding: 0.75rem 1.5rem;
   text-decoration: none;
@@ -256,7 +253,7 @@ a:hover {
 
 .card h3 {
   margin-bottom: 0.75rem;
-  color: #1d8ff2;
+  color: var(--secondary-color);
 }
 
 .card p {
@@ -265,7 +262,7 @@ a:hover {
 
 .btn-card {
   text-decoration: none;
-  background: #1d8ff2;
+  background: var(--secondary-color);
   color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -302,7 +299,7 @@ a:hover {
 }
 
 .diff-item h3 {
-  color: #1d8ff2;
+  color: var(--secondary-color);
   margin-bottom: 0.5rem;
 }
 
@@ -312,7 +309,7 @@ a:hover {
 
 /* ============== CTA SECTION (COMMON) ============== */
 .cta-section {
-  background: #1d8ff2;
+  background: var(--secondary-color);
   color: #fff;
   text-align: center;
   padding: 3rem 1rem;
@@ -328,7 +325,7 @@ a:hover {
 }
 
 .btn-primary {
-  background: #ff5c5c;
+  background: var(--accent-color);
   color: #fff;
   padding: 0.75rem 1.5rem;
   text-decoration: none;
@@ -396,7 +393,7 @@ a:hover {
 
 .founder-details h3 {
   margin-bottom: 0.25rem;
-  color: #1d8ff2;
+  color: var(--secondary-color);
 }
 
 .founder-details p {
@@ -443,7 +440,7 @@ a:hover {
 
 .service-item h3 {
   margin-bottom: 0.75rem;
-  color: #1d8ff2;
+  color: var(--secondary-color);
 }
 
 .service-item ul {
@@ -486,7 +483,7 @@ a:hover {
 }
 
 .info-box a {
-  color: #1d8ff2;
+  color: var(--secondary-color);
   text-decoration: underline;
 }
 
@@ -512,7 +509,7 @@ a:hover {
 }
 
 .contact-form label span {
-  color: #ff5c5c; /* indicates required */
+  color: var(--accent-color); /* indicates required */
 }
 
 .contact-form input,
@@ -532,7 +529,7 @@ a:hover {
 .btn-submit {
   display: inline-block;
   margin-top: 1.5rem;
-  background: #1d8ff2;
+  background: var(--secondary-color);
   color: #fff;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
@@ -609,7 +606,7 @@ a:hover {
   position: absolute;
   left: 0.5rem;
   top: 0.75rem;
-  color: #1d8ff2;
+  color: var(--secondary-color);
 }
 
 .feature-list li {
