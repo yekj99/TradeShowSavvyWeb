@@ -1,39 +1,89 @@
-/* 
-  style.css 
-  Combines global, layout, and page-specific styles for:
-    - Home
-    - About
-    - Consulting
-    - Contact
-    - Software
-*/
+/* CSS Variables */
+:root {
+  /* Colors */
+  --primary-color: #674ebf;
+  --secondary-color: #1d8ff2;
+  --accent-color: #ff5c5c;
+  --text-color: #333;
+  --background-color: #f9f9f9;
+  --white: #fff;
+  --gray-100: #f9f9f9;
+  --gray-200: #eee;
+  --gray-300: #ddd;
+  --gray-400: #ccc;
+  --gray-500: #666;
+  --gray-600: #444;
+  --black: #000;
+
+  /* Typography */
+  --font-family: Arial, sans-serif;
+  --font-size-base: 1rem;
+  --font-size-sm: 0.9rem;
+  --font-size-lg: 1.2rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+  --line-height-base: 1.6;
+  --line-height-tight: 1.4;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Container */
+  --container-width: 90%;
+  --container-max-width: 1200px;
+}
 
 /* ============== GLOBAL RESETS & UTILITIES ============== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f9f9f9;
+  font-family: var(--font-family);
+  line-height: var(--line-height-base);
+  color: var(--text-color);
+  background-color: var(--background-color);
 }
 
 /* Container utility */
 .container {
-  width: 90%;
-  max-width: 1200px;
+  width: var(--container-width);
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: var(--spacing-xl) 0;
 }
 
 hr {
   border: none;
-  border-top: 1px solid #ddd;
-  margin: 2rem 0;
+  border-top: 1px solid var(--gray-300);
+  margin: var(--spacing-xl) 0;
 }
 
 a {
@@ -47,9 +97,28 @@ a:hover {
 
 /* ============== HEADER & FOOTER SHARED STYLES ============== */
 .site-header {
-  background: #674ebf;
-  color: #fff;
-  padding: 1rem 0;
+  background: url('images/header-bg.png') center/cover no-repeat;
+  position: relative;
+  color: var(--white);
+  min-height: 300px;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0); /* adjust as needed */
+  z-index: 1;
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 300px;
 }
 
 .site-header .container {
@@ -71,25 +140,74 @@ a:hover {
   /* or another rule, like: max-width: 150px; */
 }
 
+/* NAV STRIP (Separate Bar) */
+.nav-strip {
+  background-color: var(--primary-color); /* color for the nav strip, can be brand color or darker shade */
+  padding: 0.5rem 0;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;         /* spacing between nav items */
+  justify-content: center;
+}
+
+.nav-menu a {
+  color: var(--white);
+  text-decoration: none;
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.nav-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-menu a.active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.main-nav {
+  position: absolute;
+  bottom: 1rem;  /* distance from bottom edge */
+  right: 1rem;   /* distance from right edge */
+  z-index: 2;    /* above overlay */
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent dark background */
+  border-radius: 8px;             /* round corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* NAV LIST */
 .main-nav ul {
   list-style: none;
   display: flex;
+  margin: 0;
+  padding: 0.5rem 1rem; /* space inside the nav container */
   gap: 1rem;
 }
 
 .main-nav a {
   color: #fff;
-  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
   border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
-.main-nav a:hover,
+.main-nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 .main-nav a.active {
-  background: #BBACF2;
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .site-footer {
-  background: #674ebf;
+  background: var(--primary-color);
   color: #fff;
   text-align: center;
   padding: 1rem 0;
@@ -97,7 +215,7 @@ a:hover {
 
 /* ============== HERO SECTIONS (COMMON) ============== */
 .hero {
-  background: #1d8ff2; /* Default hero background */
+  background: var(--secondary-color); /* Default hero background */
   color: #fff;
   text-align: center;
   padding: 4rem 1rem;
@@ -115,7 +233,7 @@ a:hover {
 
 .hero .btn,
 .hero .btn-alt {
-  background: #ff5c5c;
+  background: var(--accent-color);
   color: #fff;
   padding: 0.75rem 1.5rem;
   text-decoration: none;
@@ -174,19 +292,26 @@ a:hover {
 }
 
 .card {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 4px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm);
   flex: 1 1 250px;
   max-width: 350px;
-  padding: 1.5rem;
+  padding: var(--spacing-lg);
   text-align: left;
   margin: 0 auto;
+  transition: var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .card h3 {
   margin-bottom: 0.75rem;
-  color: #1d8ff2;
+  color: var(--secondary-color);
 }
 
 .card p {
@@ -194,16 +319,20 @@ a:hover {
 }
 
 .btn-card {
-  text-decoration: none;
-  background: #1d8ff2;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-sm);
   font-weight: bold;
+  text-decoration: none;
+  transition: var(--transition-normal);
+  cursor: pointer;
+  background: var(--secondary-color);
+  color: var(--white);
 }
 
 .btn-card:hover {
   background: #0056b3;
+  transform: translateY(-1px);
 }
 
 .differentiators {
@@ -232,7 +361,7 @@ a:hover {
 }
 
 .diff-item h3 {
-  color: #1d8ff2;
+  color: var(--secondary-color);
   margin-bottom: 0.5rem;
 }
 
@@ -242,7 +371,7 @@ a:hover {
 
 /* ============== CTA SECTION (COMMON) ============== */
 .cta-section {
-  background: #1d8ff2;
+  background: var(--secondary-color);
   color: #fff;
   text-align: center;
   padding: 3rem 1rem;
@@ -258,16 +387,20 @@ a:hover {
 }
 
 .btn-primary {
-  background: #ff5c5c;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  text-decoration: none;
-  border-radius: 4px;
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-sm);
   font-weight: bold;
+  text-decoration: none;
+  transition: var(--transition-normal);
+  cursor: pointer;
+  background: var(--accent-color);
+  color: var(--white);
 }
 
 .btn-primary:hover {
   background: #ff2c2c;
+  transform: translateY(-1px);
 }
 
 /* ============== ABOUT US PAGE SECTIONS ============== */
@@ -326,7 +459,7 @@ a:hover {
 
 .founder-details h3 {
   margin-bottom: 0.25rem;
-  color: #1d8ff2;
+  color: var(--secondary-color);
 }
 
 .founder-details p {
@@ -373,7 +506,7 @@ a:hover {
 
 .service-item h3 {
   margin-bottom: 0.75rem;
-  color: #1d8ff2;
+  color: var(--secondary-color);
 }
 
 .service-item ul {
@@ -416,7 +549,7 @@ a:hover {
 }
 
 .info-box a {
-  color: #1d8ff2;
+  color: var(--secondary-color);
   text-decoration: underline;
 }
 
@@ -442,17 +575,26 @@ a:hover {
 }
 
 .contact-form label span {
-  color: #ff5c5c; /* indicates required */
+  color: var(--accent-color); /* indicates required */
 }
 
 .contact-form input,
 .contact-form textarea,
 .contact-form select {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--gray-400);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-base);
+  transition: var(--transition-normal);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(29, 143, 242, 0.1);
 }
 
 .contact-form textarea {
@@ -462,7 +604,7 @@ a:hover {
 .btn-submit {
   display: inline-block;
   margin-top: 1.5rem;
-  background: #1d8ff2;
+  background: var(--secondary-color);
   color: #fff;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
@@ -539,7 +681,7 @@ a:hover {
   position: absolute;
   left: 0.5rem;
   top: 0.75rem;
-  color: #1d8ff2;
+  color: var(--secondary-color);
 }
 
 .feature-list li {
@@ -551,6 +693,61 @@ a:hover {
   color: #666;
   max-width: 600px;
   margin: 0 auto 2rem auto;
+}
+/* HERO IMAGE SPECIFIC TO INSIGHTS PAGE */
+
+
+/* BLOG LISTING */
+.blog-list {
+  text-align: center;
+  padding: 2rem 0;
+}
+.blog-list h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* BLOG POST STYLES */
+.blog-post {
+  display: flex;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.blog-post img {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+}
+.blog-content {
+  padding: 1rem;
+  flex: 1;
+}
+.blog-content h3 a {
+  text-decoration: none;
+  color: #007BFF;
+}
+.blog-content p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+.btn-read-more {
+  display: inline-block;
+  background: var(--secondary-color);
+  color: var(--white);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-weight: bold;
+  transition: var(--transition-normal);
+  cursor: pointer;
+}
+.btn-read-more:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
 }
 
 /* ============== RESPONSIVE BREAKPOINTS ============== */
@@ -595,5 +792,100 @@ a:hover {
   .software-intro h2,
   .cta-section h2 {
     font-size: 1.6rem;
+  }
+
+  /* Blog post adjustments */
+  .blog-post {
+    flex-direction: column;
+    align-items: center;
+  }
+  .blog-post img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Add tablet breakpoint */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    width: 95%;
+  }
+  
+  .services-cards {
+    gap: 1.5rem;
+  }
+  
+  .founder-bios {
+    gap: 1.5rem;
+  }
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize animations */
+.card,
+.btn-primary,
+.btn-card,
+.btn-read-more,
+.nav-menu a {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Add modern focus styles */
+:focus-visible {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 2px;
+}
+
+/* Add reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Add print styles */
+@media print {
+  .nav-strip,
+  .hero,
+  .cta-section {
+    display: none;
+  }
+
+  body {
+    color: var(--black);
+    background: var(--white);
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* Add dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #e1e1e1;
+    --background-color: #1a1a1a;
+    --gray-100: #2a2a2a;
+    --gray-200: #333;
+    --gray-300: #444;
+    --gray-400: #555;
+    --gray-500: #888;
+    --gray-600: #aaa;
+  }
+
+  .card,
+  .info-box,
+  .contact-form {
+    background: var(--gray-100);
+    border-color: var(--gray-200);
   }
 }

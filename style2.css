@@ -663,4 +663,111 @@ a:hover {
   .cta-section h2 {
     font-size: 1.6rem;
   }
+  /* HERO IMAGE SPECIFIC TO INSIGHTS PAGE */
+.insights-hero {
+  background: url('images/insights-bg.jpg') center/cover no-repeat;
+  min-height: 300px;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+}
+.insights-hero h1 {
+  font-size: 2.5rem;
+}
+.insights-hero p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+/* BLOG LISTING */
+.blog-list {
+  text-align: center;
+  padding: 2rem 0;
+}
+.blog-list h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* BLOG POST STYLES */
+.blog-post {
+  display: flex;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.blog-post img {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+}
+.blog-content {
+  padding: 1rem;
+  flex: 1;
+}
+.blog-content h3 a {
+  text-decoration: none;
+  color: #007BFF;
+}
+.blog-content p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+.btn-read-more {
+  display: inline-block;
+  background: #007BFF;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.btn-read-more:hover {
+  background: #0056b3;
+}
+
+/* CTA SECTION */
+.cta-section {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+.cta-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.cta-section p {
+  margin-bottom: 2rem;
+}
+.btn-primary {
+  background: #ff5c5c;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.btn-primary:hover {
+  background: #ff2c2c;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .blog-post {
+    flex-direction: column;
+    align-items: center;
+  }
+  .blog-post img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 }
